@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>地图数据展示</title>
+		<link rel="stylesheet" type="text/css"  href="css/ol.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script type="text/javascript" src= "js/ol.js"></script>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    </head>
+    <body>
+		<!--头部信息显示-->
+        <div id="header">
+			<div class="header_left">轨迹数据研究</div>
+			<div class="header_right">
+				<div class="load">登录</div>
+				<div class="register">注册</div>
+			</div>
+		</div>
+		<!--内容显示-->
+		<div id="body">
+			<!--数据操作项目-->
+			<div class="body_left_bar">
+				<input type="button" name="single_data" id="single_point_data" value="加载单人轨迹点" />
+				<input type="button" name="single_data" id="single_line_data" value="单人数据处理结果" />	
+				<input type="button" name="all_data" id="all_data" value="加载多个数据" />
+			</div>
+			<!--地图信息显示-->
+			<div id="body_right_bar">
+				<div id="map_info"></div>
+				<div class="delay_info">绑定数据</div>
+			</div>
+			<!--时间线-->
+			<div id="time_line"></div>
+		</div>
+		<div id="screen_xy"></div>
+		<div id="map_xy"></div>
+		<input type="submit">
+	<script type="text/javascript">
+	 
+	    // 地图设置中心，设置到成都，在本地离线地图 offlineMapTiles刚好有一张zoom为4的成都瓦片
+	    var center = ol.proj.transform([103.937404,30.756035], 'EPSG:4326', 'EPSG:3857');
+	 
+	    //创建地图
+	    var map = new ol.Map({
+	        view: new ol.View({ 
+			    //extent: [102, 29, 104, 31],
+	            center: center,
+	            zoom: 12,
+				minZoom: 10,
+				maxZoom: 18
+	        }),
+	        target: 'map_info'
+	    });
+	 
+	    // 添加一个使用离线瓦片地图的层
+	    var offlineMapLayer = new ol.layer.Tile({
+			source: new ol.source.OSM()
+	        /* source: new ol.source.XYZ({
+	            // 设置本地离线瓦片所在路径，由于例子里面只有一张瓦片，页面显示时就只看得到一张瓦片。
+	            url: './Title/{z}/{x}/{y}.png'
+	        }) */
+	    });
+		
+
+	 
+	    map.addLayer(offlineMapLayer);
+		var address;
+		map.on('singleclick', function(e){
+				//alert(e.coordinate);
+				//address=(ol.proj.transform(e.coordinate, 'EPSG:3857', 'EPSG:4326'));
+				//alert(address);
+			/* 	$('#map_xy').empty();
+				$('#map_xy').append(address); */
+		        // 通过getEventCoordinate方法获取地理位置，再转换为wgs84坐标，并弹出对话框显示
+				//alert(map.getEventCoordinate(e.originalEvent));
+		        address=(ol.proj.transform(map.getEventCoordinate(e.originalEvent), 'EPSG:3857', 'EPSG:4326'));
+				$('#map_xy').empty();
+				$('#map_xy').append(address);
+			 
+		        //var lonlat = map.getCoordinateFromPixel(e.pixel);
+				//alert(lonlat);
+		        //alert(ol.proj.transform(lonlat,"EPSG:3857", "EPSG:4326")); //由3857坐标系转为4326
+		　　　　 
+		    });
+	</script>
+    </body>
+	
+</html> 

@@ -1,0 +1,91 @@
+#header {
+  border: 1px solid red;
+  height: 60px;
+  width: auto;
+}
+#header .header_left {
+  border: 1px solid black;
+  height: 30px;
+  margin: 15px auto 5px 30px ;
+  width: 300px;
+  float: left;
+}
+#header .header_right{
+	border:  1px solid black;
+	height: 30px;
+	width: 300px;
+	margin: 15px 30px;
+	float: right;
+	
+}
+#header .header_right .load{
+	height: 20px;
+	width: 50px;
+	margin: 5px 50px;
+	
+	float: left;
+}
+#header .header_right .register{
+	height: 20px;
+	width: 50px;
+	margin: 5px 50px;
+	float: right;
+}
+#body{
+	border: 1px solid red;
+	margin: 40px 10px;
+	height: 850px;
+	width: auto;
+}
+#body .body_left_bar{
+	border: 1px solid black;
+	height:700px ;
+	width: 150px;
+	margin: 50px ;
+	margin-left: 10px;
+	position: relative;
+	float: left;
+}
+#body .body_left_bar #single_point_data{
+	width:120px;
+	padding: 10px 0px 10px 0px ;
+	margin: 10px 15px;
+}
+#body .body_left_bar #single_line_data{
+	width:120px;
+	padding: 10px 0px 10px 0px ;
+	margin: 10px 15px;
+}
+#body .body_left_bar #all_data{
+	width:120px;
+	padding: 10px 0px 10px 0px ;
+	margin: 10px 15px;
+}
+#body #body_right_bar{
+	border: 1px solid black;
+	height: 700px;
+	width: 1600px;
+	position: relative;
+	float: right;
+	margin: 50px 10px;
+	
+}
+#body #body_right_bar #map_info{
+	border: 1px solid red;
+	margin: 3px;
+	height: 650px;
+	width: 1590px;
+}
+#body #body_right_bar .delay_info{
+	border: 1px solid red;
+	height: 30px;
+	width: 1590px;
+}
+
+#time_line{
+	border: 1px solid red;
+	height: 10px;
+	width: 1800px;
+	margin: 800px 20px;
+	
+}
