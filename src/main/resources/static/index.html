@@ -33,14 +33,11 @@
 			<!--时间线-->
 			<div id="time_line"></div>
 		</div>
-		<div id="screen_xy"></div>
-		<div id="map_xy"></div>
-		<input type="submit">
+		<input type="text" id="map_xy"  />
+		<input type="submit" id="inputMap_xy" onclick="a1()" value="提交此点"/>
 	<script type="text/javascript">
-	 
 	    // 地图设置中心，设置到成都，在本地离线地图 offlineMapTiles刚好有一张zoom为4的成都瓦片
 	    var center = ol.proj.transform([103.937404,30.756035], 'EPSG:4326', 'EPSG:3857');
-	 
 	    //创建地图
 	    var map = new ol.Map({
 	        view: new ol.View({ 
@@ -61,9 +58,6 @@
 	            url: './Title/{z}/{x}/{y}.png'
 	        }) */
 	    });
-		
-
-	 
 	    map.addLayer(offlineMapLayer);
 		var address;
 		map.on('singleclick', function(e){
@@ -75,15 +69,20 @@
 		        // 通过getEventCoordinate方法获取地理位置，再转换为wgs84坐标，并弹出对话框显示
 				//alert(map.getEventCoordinate(e.originalEvent));
 		        address=(ol.proj.transform(map.getEventCoordinate(e.originalEvent), 'EPSG:3857', 'EPSG:4326'));
-				$('#map_xy').empty();
-				$('#map_xy').append(address);
-			 
+				$('#map_xy').val(address);
 		        //var lonlat = map.getCoordinateFromPixel(e.pixel);
 				//alert(lonlat);
-		        //alert(ol.proj.transform(lonlat,"EPSG:3857", "EPSG:4326")); //由3857坐标系转为4326
-		　　　　 
+		        //alert(ol.proj.transform(lonlat,"EPSG:3857", "EPSG:4326")); //由3857坐标系转为432
 		    });
+		function a1(){
+			$.post("/index/a1",{"map_xy":$("#map_xy").val()},function (data){
+				if(data.toString()=='success'){
+					console.log("ok");
+				}else {
+					console.log("wrong");
+				}
+			})
+		}
 	</script>
     </body>
-	
 </html> 

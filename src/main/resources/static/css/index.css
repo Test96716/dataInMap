@@ -102,18 +102,17 @@ body{
 	margin: 800px 20px;
 	
 }
-#screen_xy{
-	border: 1px solid red;
-	height: 40px;
-	width: 200px;
-	position: absolute;
-    top: 61px;	
-}
 #map_xy{
-	border: 1px solid red;
 	height: 40px;
-	width: 200px;
+	width: 400px;
 	position: absolute;
-	top: 61px;
-	left: 210px;
+	top: 65px;
+	left: 15px;
+}
+#inputMap_xy{
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 81px;
+	left: 520px;
 }

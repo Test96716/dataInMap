@@ -10,5 +10,4 @@ public class index_controller {
     public String indexCon(){
         return "index.html";
     }
-
 }
