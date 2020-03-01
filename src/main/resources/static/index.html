@@ -21,7 +21,7 @@
 		<div id="body">
 			<!--数据操作项目-->
 			<div class="body_left_bar">
-				<input type="button" name="single_data" id="single_point_data" value="加载单人轨迹点" />
+				<input type="button" name="single_data" id="single_point_data" onclick="single()" value="加载单人轨迹点" />
 				<input type="button" name="single_data" id="single_line_data" value="单人数据处理结果" />	
 				<input type="button" name="all_data" id="all_data" value="加载多个数据" />
 			</div>
@@ -41,7 +41,6 @@
 	    //创建地图
 	    var map = new ol.Map({
 	        view: new ol.View({ 
-			    //extent: [102, 29, 104, 31],
 	            center: center,
 	            zoom: 12,
 				minZoom: 10,
@@ -58,21 +57,12 @@
 	            url: './Title/{z}/{x}/{y}.png'
 	        }) */
 	    });
-	    map.addLayer(offlineMapLayer);
-		var address;
+	 
+		map.addLayer(offlineMapLayer);
+
 		map.on('singleclick', function(e){
-				//alert(e.coordinate);
-				//address=(ol.proj.transform(e.coordinate, 'EPSG:3857', 'EPSG:4326'));
-				//alert(address);
-			/* 	$('#map_xy').empty();
-				$('#map_xy').append(address); */
-		        // 通过getEventCoordinate方法获取地理位置，再转换为wgs84坐标，并弹出对话框显示
-				//alert(map.getEventCoordinate(e.originalEvent));
-		        address=(ol.proj.transform(map.getEventCoordinate(e.originalEvent), 'EPSG:3857', 'EPSG:4326'));
+		       var address=(ol.proj.transform(map.getEventCoordinate(e.originalEvent), 'EPSG:3857', 'EPSG:4326'));
 				$('#map_xy').val(address);
-		        //var lonlat = map.getCoordinateFromPixel(e.pixel);
-				//alert(lonlat);
-		        //alert(ol.proj.transform(lonlat,"EPSG:3857", "EPSG:4326")); //由3857坐标系转为432
 		    });
 		function a1(){
 			$.post("/index/a1",{"map_xy":$("#map_xy").val()},function (data){
@@ -83,6 +73,20 @@
 				}
 			})
 		}
+		function single() {
+			var layers = new ol.layer.Vector({
+				source: new ol.source.Vector({
+					projection: 'EPSG:4326',
+					url: "./data/line.json", //GeoJSON的文件路径，用户可以根据需求而改变
+					format: new ol.format.GeoJSON()
+					})
+			   })
+			map.addLayer(layers);
+			$.post("/index/single",{"name":"1"},function (data) {
+			})
+		}
+
+
 	</script>
     </body>
 </html> 

@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css"  href="css/ol.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<script type="text/javascript" src= "js/ol.js"></script>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
     </head>
     <body>
 		<!--头部信息显示-->
@@ -20,7 +21,7 @@
 		<div id="body">
 			<!--数据操作项目-->
 			<div class="body_left_bar">
-				<input type="button" name="single_data" id="single_point_data" value="加载单人轨迹点" />
+				<input type="button" name="single_data" id="single_point_data" onclick="single()" value="加载单人轨迹点" />
 				<input type="button" name="single_data" id="single_line_data" value="单人数据处理结果" />	
 				<input type="button" name="all_data" id="all_data" value="加载多个数据" />
 			</div>
@@ -32,16 +33,18 @@
 			<!--时间线-->
 			<div id="time_line"></div>
 		</div>
+		<input type="text" id="map_xy"  />
+		<input type="submit" id="inputMap_xy" onclick="a1()" value="提交此点"/>
 	<script type="text/javascript">
-	 
 	    // 地图设置中心，设置到成都，在本地离线地图 offlineMapTiles刚好有一张zoom为4的成都瓦片
 	    var center = ol.proj.transform([103.937404,30.756035], 'EPSG:4326', 'EPSG:3857');
-	 
 	    //创建地图
 	    var map = new ol.Map({
 	        view: new ol.View({ 
 	            center: center,
-	            zoom: 13
+	            zoom: 12,
+				minZoom: 10,
+				maxZoom: 18
 	        }),
 	        target: 'map_info'
 	    });
@@ -55,8 +58,43 @@
 	        }) */
 	    });
 	 
-	    map.addLayer(offlineMapLayer);
+		map.addLayer(offlineMapLayer);
+
+		map.on('singleclick', function(e){
+		       var address=(ol.proj.transform(map.getEventCoordinate(e.originalEvent), 'EPSG:3857', 'EPSG:4326'));
+				$('#map_xy').val(address);
+		    });
+		function a1(){
+			$.post("/index/a1",{"map_xy":$("#map_xy").val()},function (data){
+				if(data.toString()=='success'){
+					console.log("ok");
+				}else {
+					console.log("wrong");
+				}
+			})
+		}
+		function single() {
+			var layers = new ol.layer.Vector({
+				source: new ol.source.Vector({
+					projection: 'EPSG:4326',
+					url: "./data/line.json", //GeoJSON的文件路径，用户可以根据需求而改变
+					format: new ol.format.GeoJSON()
+					})
+			   })
+			map.addLayer(layers);
+			/*var map1 = new ol.Map({
+			    target: 'map_info',
+			    layers: layers,
+			    view: new ol.View({
+			         center: center,
+			         zoom: 12
+			    })
+			});*/
+			$.post("/index/single",{"name":"1"},function (data) {
+			})
+		}
+
+
 	</script>
     </body>
-	
 </html> 

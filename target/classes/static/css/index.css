@@ -1,14 +1,20 @@
+body{
+	position: absolute;
+}
 #header {
   border: 1px solid red;
   height: 60px;
-  width: auto;
+  width: 1800px;
+  position: absolute;
+  left: 20px;
 }
 #header .header_left {
   border: 1px solid black;
   height: 30px;
-  margin: 15px auto 5px 30px ;
+  margin: 15px 0px 5px 30px ;
   width: 300px;
   float: left;
+  
 }
 #header .header_right{
 	border:  1px solid black;
@@ -22,7 +28,6 @@
 	height: 20px;
 	width: 50px;
 	margin: 5px 50px;
-	
 	float: left;
 }
 #header .header_right .register{
@@ -35,7 +40,9 @@
 	border: 1px solid red;
 	margin: 40px 10px;
 	height: 850px;
-	width: auto;
+	width: 1850px;
+	position: absolute;
+	top: 100px;
 }
 #body .body_left_bar{
 	border: 1px solid black;
@@ -43,7 +50,7 @@
 	width: 150px;
 	margin: 50px ;
 	margin-left: 10px;
-	position: relative;
+	position: absolute;
 	float: left;
 }
 #body .body_left_bar #single_point_data{
@@ -65,7 +72,8 @@
 	border: 1px solid black;
 	height: 700px;
 	width: 1600px;
-	position: relative;
+	position: absolute;
+	left: 190px;
 	float: right;
 	margin: 50px 10px;
 	
@@ -73,11 +81,15 @@
 #body #body_right_bar #map_info{
 	border: 1px solid red;
 	margin: 3px;
+	position: absolute;
 	height: 650px;
 	width: 1590px;
 }
 #body #body_right_bar .delay_info{
 	border: 1px solid red;
+	position: absolute;
+	top: 660px;
+	left: 3px;
 	height: 30px;
 	width: 1590px;
 }
@@ -85,7 +97,22 @@
 #time_line{
 	border: 1px solid red;
 	height: 10px;
+	position: absolute;
 	width: 1800px;
 	margin: 800px 20px;
 	
+}
+#map_xy{
+	height: 40px;
+	width: 400px;
+	position: absolute;
+	top: 65px;
+	left: 15px;
+}
+#inputMap_xy{
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 81px;
+	left: 520px;
 }
