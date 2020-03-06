@@ -3,31 +3,24 @@ package com.uestc.infomap.pojo;
 import java.util.Date;
 
 public class geojsonPoint {
-        double pointx;
-        double pointy;
+        String pointx;
+        String pointy;
         Date time;
-        double speed;
+        String speed;
 
-    public geojsonPoint(double pointx, double pointy, Date time, double speed) {
-        this.pointx = pointx;
-        this.pointy = pointy;
-        this.time = time;
-        this.speed = speed;
-    }
-
-    public double getPointx() {
+    public String getPointx() {
         return pointx;
     }
 
-    public void setPointx(double pointx) {
+    public void setPointx(String pointx) {
         this.pointx = pointx;
     }
 
-    public double getPointy() {
+    public String getPointy() {
         return pointy;
     }
 
-    public void setPointy(double pointy) {
+    public void setPointy(String pointy) {
         this.pointy = pointy;
     }
 
@@ -39,24 +32,31 @@ public class geojsonPoint {
         this.time = time;
     }
 
-    public double getSpeed() {
+    public String getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(String speed) {
         this.speed = speed;
+    }
+
+    public geojsonPoint(String pointx, String pointy, Date time, String speed) {
+        this.pointx = pointx;
+        this.pointy = pointy;
+        this.time = time;
+        this.speed = speed;
+    }
+
+    public geojsonPoint() {
     }
 
     @Override
     public String toString() {
         return "geojsonPoint{" +
-                "pointx=" + pointx +
-                ", pointy=" + pointy +
+                "pointx='" + pointx + '\'' +
+                ", pointy='" + pointy + '\'' +
                 ", time=" + time +
-                ", speed=" + speed +
+                ", speed='" + speed + '\'' +
                 '}';
-    }
-
-    public geojsonPoint() {
     }
 }
