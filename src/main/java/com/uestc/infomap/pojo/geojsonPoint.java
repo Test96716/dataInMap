@@ -3,10 +3,10 @@ package com.uestc.infomap.pojo;
 import java.util.Date;
 
 public class geojsonPoint {
-        String pointx;
-        String pointy;
-        Date time;
-        String speed;
+    String pointx;
+    String pointy;
+    Date time;
+    String speed;
 
     public String getPointx() {
         return pointx;

@@ -1,118 +1,147 @@
-body{
-	position: absolute;
-}
-#header {
-  border: 1px solid red;
-  height: 60px;
-  width: 1800px;
-  position: absolute;
-  left: 20px;
-}
-#header .header_left {
-  border: 1px solid black;
-  height: 30px;
-  margin: 15px 0px 5px 30px ;
-  width: 300px;
-  float: left;
-  
-}
-#header .header_right{
-	border:  1px solid black;
-	height: 30px;
-	width: 300px;
-	margin: 15px 30px;
-	float: right;
-	
-}
-#header .header_right .load{
-	height: 20px;
-	width: 50px;
-	margin: 5px 50px;
-	float: left;
-}
-#header .header_right .register{
-	height: 20px;
-	width: 50px;
-	margin: 5px 50px;
-	float: right;
-}
-#body{
-	border: 1px solid red;
-	margin: 40px 10px;
-	height: 850px;
-	width: 1850px;
-	position: absolute;
-	top: 100px;
-}
-#body .body_left_bar{
-	border: 1px solid black;
-	height:700px ;
-	width: 150px;
-	margin: 50px ;
-	margin-left: 10px;
-	position: absolute;
-	float: left;
-}
-#body .body_left_bar #single_point_data{
-	width:120px;
-	padding: 10px 0px 10px 0px ;
-	margin: 10px 15px;
-}
-#body .body_left_bar #single_line_data{
-	width:120px;
-	padding: 10px 0px 10px 0px ;
-	margin: 10px 15px;
-}
-#body .body_left_bar #all_data{
-	width:120px;
-	padding: 10px 0px 10px 0px ;
-	margin: 10px 15px;
-}
-#body #body_right_bar{
-	border: 1px solid black;
-	height: 700px;
-	width: 1600px;
-	position: absolute;
-	left: 190px;
-	float: right;
-	margin: 50px 10px;
-	
-}
-#body #body_right_bar #map_info{
-	border: 1px solid red;
-	margin: 3px;
-	position: absolute;
-	height: 650px;
-	width: 1590px;
-}
-#body #body_right_bar .delay_info{
-	border: 1px solid red;
-	position: absolute;
-	top: 660px;
-	left: 3px;
-	height: 30px;
-	width: 1590px;
+body {
+    position: absolute;
 }
 
-#time_line{
-	border: 1px solid red;
-	height: 10px;
-	position: absolute;
-	width: 1800px;
-	margin: 800px 20px;
-	
+#header {
+    border: 1px solid red;
+    height: 60px;
+    width: 1800px;
+    position: absolute;
+    left: 20px;
 }
-#map_xy{
-	height: 40px;
-	width: 400px;
-	position: absolute;
-	top: 65px;
-	left: 15px;
+
+#header .header_left {
+    border: 1px solid black;
+    height: 30px;
+    margin: 15px 0px 5px 30px;
+    width: 300px;
+    float: left;
+
 }
-#inputMap_xy{
-	height: 30px;
-	width: 100px;
-	position: absolute;
-	top: 81px;
-	left: 520px;
+
+#header .header_right {
+    border: 1px solid black;
+    height: 30px;
+    width: 300px;
+    margin: 15px 30px;
+    float: right;
+
+}
+
+#header .header_right .load {
+    height: 20px;
+    width: 50px;
+    margin: 5px 50px;
+    float: left;
+}
+
+#header .header_right .register {
+    height: 20px;
+    width: 50px;
+    margin: 5px 50px;
+    float: right;
+}
+
+#body {
+    border: 1px solid red;
+    margin: 40px 10px;
+    height: 850px;
+    width: 1850px;
+    position: absolute;
+    top: 100px;
+}
+
+#body .body_left_bar {
+    border: 1px solid black;
+    height: 700px;
+    width: 150px;
+    margin: 50px;
+    margin-left: 10px;
+    position: absolute;
+    float: left;
+}
+
+#body .body_left_bar #single_point_data {
+    width: 120px;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 15px;
+}
+
+#body .body_left_bar #single_line_data {
+    width: 120px;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 15px;
+}
+
+#body .body_left_bar #all_data {
+    width: 120px;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 15px;
+}
+
+#body .body_left_bar #road_data {
+    width: 120px;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 15px;
+}
+
+#body #body_right_bar {
+    border: 1px solid black;
+    height: 700px;
+    width: 1600px;
+    position: absolute;
+    left: 190px;
+    float: right;
+    margin: 50px 10px;
+
+}
+
+#body #body_right_bar #map_info {
+    border: 1px solid red;
+    margin: 3px;
+    position: absolute;
+    height: 650px;
+    width: 1590px;
+}
+
+#body #body_right_bar .delay_info {
+    border: 1px solid red;
+    position: absolute;
+    top: 660px;
+    left: 3px;
+    height: 30px;
+    width: 1590px;
+}
+
+#time_line {
+    border: 1px solid red;
+    height: 10px;
+    position: absolute;
+    width: 1800px;
+    margin: 800px 20px;
+
+}
+
+#map_xy {
+    height: 40px;
+    width: 400px;
+    position: absolute;
+    top: 65px;
+    left: 15px;
+}
+
+#inputMap_xy {
+    height: 30px;
+    width: 100px;
+    position: absolute;
+    top: 81px;
+    left: 520px;
+}
+
+#controMap_xy {
+    height: 30px;
+    width: 100px;
+    position: absolute;
+    top: 81px;
+    left: 630px;
 }
